@@ -7,7 +7,6 @@
 //
 package com.willshex.gson.json.service.server;
 
-import static com.spacehopperstudios.utility.StringUtils.stripslashes;
 import static com.spacehopperstudios.utility.StringUtils.urldecode;
 
 import java.io.IOException;
@@ -44,7 +43,7 @@ public abstract class JsonServlet extends ContextAwareServelet {
 		}
 
 		if (action != null && request != null) {
-			request = stripslashes(urldecode(request));
+			request = urldecode(request);
 
 			output = processAction(action, (JsonObject) (new JsonParser()).parse(request));
 
