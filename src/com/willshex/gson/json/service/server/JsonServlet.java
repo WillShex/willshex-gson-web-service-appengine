@@ -19,11 +19,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.willshex.service.ContextAwareServelet;
+import com.willshex.gson.json.shared.Convert;
+import com.willshex.service.ContextAwareServlet;
 
 @SuppressWarnings("serial")
-public abstract class JsonServlet extends ContextAwareServelet {
+public abstract class JsonServlet extends ContextAwareServlet{
 
 	private final Class<?> thisClass = getClass();
 	private final Logger LOG = Logger.getLogger(thisClass.getName());
@@ -45,7 +45,7 @@ public abstract class JsonServlet extends ContextAwareServelet {
 		if (action != null && request != null) {
 			request = urldecode(request);
 
-			output = processAction(action, (JsonObject) (new JsonParser()).parse(request));
+			output = processAction(action, Convert.toJsonObject(request));
 
 			if (LOG.isLoggable(Level.FINE)) {
 				LOG.fine("Output is [" + output + "]");
