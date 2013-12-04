@@ -12,20 +12,14 @@ package com.willshex.gson.json.service.server;
  * 
  */
 @SuppressWarnings("serial")
-public class InputValidationException extends Exception {
-	protected int code;
+public class InputValidationException extends ServiceException {
 
-	public int getCode() {
-		return code;
-	}
-
+	/**
+	 * @param code
+	 * @param message
+	 */
 	public InputValidationException(int code, String message) {
-		super(message);
-		this.code = code;
-	}
-
-	public String toString() {
-		return "code[" + String.valueOf(code) + "] = " + getClass().getSimpleName() + "[" + getMessage() + "]";
+		super(code, message);
 	}
 
 }
