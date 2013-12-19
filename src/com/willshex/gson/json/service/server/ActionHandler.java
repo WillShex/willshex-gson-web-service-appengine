@@ -21,9 +21,9 @@ public abstract class ActionHandler {
 	protected Error convertToErrorAndLog(Logger log, Exception e) {
 		Error error = new Error();
 
-		if (e instanceof InputValidationException) {
-			error.code = Integer.valueOf(((InputValidationException) e).getCode());
-			error.message = ((InputValidationException) e).getMessage();
+		if (e instanceof ServiceException) {
+			error.code = Integer.valueOf(((ServiceException) e).getCode());
+			error.message = ((ServiceException) e).getMessage();
 		} else {
 			error.code = Integer.valueOf(888);
 			error.message = "An unexpected error occured [" + e.toString() + "]";
