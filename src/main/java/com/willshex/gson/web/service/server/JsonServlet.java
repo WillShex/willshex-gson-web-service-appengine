@@ -1,13 +1,11 @@
 //
 //  JsonServlet.java
-//  jspacecloud
+//  willshex-gson-web-service-appengine
 //
 //  Created by William Shakour on June 16, 2012.
-//  Copyright © 2012 SPACEHOPPER STUDIOS LTD. All rights reserved.
+//  Copyright © 2012 WillShex Limited. All rights reserved.
 //
-package com.willshex.gson.json.service.server;
-
-import static com.spacehopperstudios.utility.StringUtils.urldecode;
+package com.willshex.gson.web.service.server;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -20,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.JsonObject;
 import com.willshex.gson.json.shared.Convert;
-import com.willshex.service.ContextAwareServlet;
 
 @SuppressWarnings("serial")
 public abstract class JsonServlet extends ContextAwareServlet{

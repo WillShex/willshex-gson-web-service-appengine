@@ -1,11 +1,11 @@
 //
 //  JsonService.java
-//  spacecloud
+//  willshex-gson-web-service-appengine
 //
 //  Created by William Shakour on February 12, 2013.
-//  Copyright © 2013 SPACEHOPPER STUDIOS LTD. All rights reserved.
+//  Copyright © 2013 WillShex Limited. All rights reserved.
 //
-package com.willshex.gson.json.service.server;
+package com.willshex.gson.web.service.server;
 
 import java.net.HttpURLConnection;
 import java.net.URL;

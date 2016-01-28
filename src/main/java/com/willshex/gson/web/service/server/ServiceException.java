@@ -1,11 +1,11 @@
 //
 //  ServiceException.java
-//  spchopr.gson.json.service_appengine
+//  willshex-gson-web-service-appengine
 //
 //  Created by William Shakour (billy1380) on 4 Dec 2013.
-//  Copyright © 2013 SPACEHOPPER STUDIOS LTD. All rights reserved.
+//  Copyright © 2013 WillShex Limited. All rights reserved.
 //
-package com.willshex.gson.json.service.server;
+package com.willshex.gson.web.service.server;
 
 /**
  * @author billy1380
