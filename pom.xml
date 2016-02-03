@@ -15,6 +15,14 @@
 	<artifactId>willshex-gson-web-service-appengine</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
+	<properties>
+		<!-- App Engine -->
+		<appengine.version>1.9.27</appengine.version>
+
+		<!-- Maven -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -33,6 +41,18 @@
 			<artifactId>willshex-utility</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.willshex</groupId>
+			<artifactId>willshex-server</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>${appengine.version}</version>
+        </dependency>
 	</dependencies>
 
 	<build>

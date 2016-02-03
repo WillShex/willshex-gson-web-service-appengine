@@ -15,10 +15,10 @@ import com.google.appengine.api.urlfetch.HTTPRequest;
 import com.google.appengine.api.urlfetch.HTTPResponse;
 import com.google.appengine.api.urlfetch.URLFetchService;
 import com.google.appengine.api.urlfetch.URLFetchServiceFactory;
-import com.willshex.gson.json.service.shared.Error;
-import com.willshex.gson.json.service.shared.Request;
-import com.willshex.gson.json.service.shared.Response;
-import com.willshex.gson.json.service.shared.StatusType;
+import com.willshex.gson.web.service.shared.Error;
+import com.willshex.gson.web.service.shared.Request;
+import com.willshex.gson.web.service.shared.Response;
+import com.willshex.gson.web.service.shared.StatusType;
 
 public abstract class JsonService {
 

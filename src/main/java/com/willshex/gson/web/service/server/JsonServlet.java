@@ -7,6 +7,8 @@
 //
 package com.willshex.gson.web.service.server;
 
+import static com.willshex.utility.StringUtils.urldecode;
+
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.logging.Level;
@@ -18,9 +20,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.JsonObject;
 import com.willshex.gson.json.shared.Convert;
+import com.willshex.server.ContextAwareServlet;
 
 @SuppressWarnings("serial")
-public abstract class JsonServlet extends ContextAwareServlet{
+public abstract class JsonServlet extends ContextAwareServlet {
 
 	private final Class<?> thisClass = getClass();
 	private final Logger LOG = Logger.getLogger(thisClass.getName());
@@ -28,7 +31,7 @@ public abstract class JsonServlet extends ContextAwareServlet{
 	// protected boolean allowXDomainPosting = false;
 
 	@Override
-	protected void doGet() throws IOException {
+	protected void doGet () throws IOException {
 
 		String output = "null";
 
@@ -36,7 +39,8 @@ public abstract class JsonServlet extends ContextAwareServlet{
 		String request = REQUEST.get().getParameter("request");
 
 		if (LOG.isLoggable(Level.FINE)) {
-			LOG.fine("Action is [" + action + "] and request is [" + request + "]");
+			LOG.fine("Action is [" + action + "] and request is [" + request
+					+ "]");
 		}
 
 		if (action != null && request != null) {
@@ -63,7 +67,8 @@ public abstract class JsonServlet extends ContextAwareServlet{
 
 				OutputStreamWriter writer = null;
 				try {
-					GZIPOutputStream outputStream = new GZIPOutputStream(RESPONSE.get().getOutputStream());
+					GZIPOutputStream outputStream = new GZIPOutputStream(
+							RESPONSE.get().getOutputStream());
 					writer = new OutputStreamWriter(outputStream);
 					writer.append(output);
 				} finally {
@@ -72,14 +77,16 @@ public abstract class JsonServlet extends ContextAwareServlet{
 					}
 				}
 			} else {
-				RESPONSE.get().getWriter().println(/* "var response=" . */output);
+				RESPONSE.get().getWriter()
+						.println(/* "var response=" . */output);
 			}
 		}
 	}
 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws javax.servlet.ServletException, IOException {
+	protected void doPost (HttpServletRequest req, HttpServletResponse resp)
+			throws javax.servlet.ServletException, IOException {
 		doGet(req, resp);
 	};
 
-	protected abstract String processAction(String action, JsonObject request);
+	protected abstract String processAction (String action, JsonObject request);
 }
