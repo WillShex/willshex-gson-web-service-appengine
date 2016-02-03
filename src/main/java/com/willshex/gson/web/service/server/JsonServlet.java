@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.JsonObject;
-import com.willshex.gson.json.shared.Convert;
+import com.willshex.gson.shared.Convert;
 import com.willshex.server.ContextAwareServlet;
 
 @SuppressWarnings("serial")
