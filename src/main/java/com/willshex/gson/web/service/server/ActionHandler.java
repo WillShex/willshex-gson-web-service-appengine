@@ -24,8 +24,12 @@ public abstract class ActionHandler<I extends Request, O extends Response>
 		implements IClearSensitive<O> {
 
 	public O handle (I input) {
-		logger().finer(
-				"Entering " + this.getClass().getSimpleName() + ".handle");
+		final Logger logger = logger();
+
+		if (logger.isLoggable(Level.FINER)) {
+			logger().finer(
+					"Entering " + this.getClass().getSimpleName() + ".handle");
+		}
 
 		O output = newOutput();
 
@@ -40,8 +44,10 @@ public abstract class ActionHandler<I extends Request, O extends Response>
 			clearSensitiveFields(output);
 		}
 
-		logger().finer(
-				"Exiting " + this.getClass().getSimpleName() + ".handle");
+		if (logger.isLoggable(Level.FINER)) {
+			logger.finer(
+					"Exiting " + this.getClass().getSimpleName() + ".handle");
+		}
 
 		return output;
 	}
@@ -51,7 +57,7 @@ public abstract class ActionHandler<I extends Request, O extends Response>
 	protected abstract O newOutput ();
 
 	protected abstract Logger logger ();
-	
+
 	protected Error convertToErrorAndLog (Exception e) {
 		Error error = new Error();
 
