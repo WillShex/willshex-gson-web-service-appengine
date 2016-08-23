@@ -7,8 +7,6 @@
 //
 package com.willshex.gson.web.service.server;
 
-import static com.willshex.utility.StringUtils.urldecode;
-
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.logging.Level;
@@ -44,7 +42,9 @@ public abstract class JsonServlet extends ContextAwareServlet {
 		}
 
 		if (action != null && request != null) {
-			request = urldecode(request);
+			// NOTE: removed because it seems that getParameter is already url decoded
+			// whether post or get
+			// request = urldecode(request);
 
 			output = processAction(action, Convert.toJsonObject(request));
 
